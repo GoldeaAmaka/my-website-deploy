@@ -90,8 +90,6 @@ class Comment(db.Model):
     post_id = Column(Integer, ForeignKey("blog_posts.id"))
     parent_post = relationship("BlogPost", back_populates="comments")
 
-with app.app_context():
-    db.create_all()
 
 # ---------------------------
 # Flask-Login Configuration
