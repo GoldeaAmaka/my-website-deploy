@@ -30,7 +30,8 @@ ckeditor = CKEditor(app)
 Bootstrap5(app)
 
 # DATABASE CONFIG
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///post.db'  # Temporary local DB
+database_url = os.environ.get("DATABASE_URL", "sqlite:///post.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
